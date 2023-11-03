@@ -1,4 +1,5 @@
 import { useSearchParams } from "@remix-run/react";
+import { Input } from "~/components";
 
 interface Props {
   action?: string;
@@ -17,18 +18,14 @@ export function SearchForm({
     <form method="GET" action={action} className="w-full">
       <fieldset className="group relative flex items-center gap-1">
         <label htmlFor="search" hidden />
-        <input
+        <Input
           id="searchProducts"
           type="search"
           name="q"
           placeholder={placeholder}
           defaultValue={query}
           autoComplete="off"
-          className="block px-3 ps-12 w-full rounded-full max-w-3xl bg-zinc-700 focus:bg-zinc-100 focus:text-black transition duration-200"
         />
-        <span className="pointer-events-none absolute flex ps-3">
-          <button>Search</button>
-        </span>
       </fieldset>
     </form>
   );
