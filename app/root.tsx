@@ -9,11 +9,13 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import sansFontStyles from "@fontsource-variable/inter/index.css";
 import styles from "./tailwind.css";
 
 export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+  { rel: "stylesheet", href: sansFontStyles },
   { rel: "stylesheet", href: styles },
+  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 
 export default function App() {
