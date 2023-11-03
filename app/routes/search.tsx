@@ -30,7 +30,12 @@ export default function Route() {
 
   return (
     <Layout>
-      {!query && <p>Insert keyword!</p>}
+      {!query && (
+        <p className="text-muted-foreground">
+          Insert keyword! Examples: "New York City", "NYC", "350 5th Ave, New
+          York, NY 10118".
+        </p>
+      )}
 
       {query && businesses.businesses && businesses.businesses.length > 0 ? (
         <ul className="grid grid-cols-5 justify-center items-center gap-4">
