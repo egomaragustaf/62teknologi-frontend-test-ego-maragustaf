@@ -29,7 +29,6 @@ export default function Route() {
 
   return (
     <div>
-      {/* <pre>{JSON.stringify(businesses, null, 2)}</pre> */}
       <SearchForm />
 
       {!query && <p>Insert keyword!</p>}
