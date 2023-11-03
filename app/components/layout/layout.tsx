@@ -1,4 +1,4 @@
-import { Navigation } from "./header-navigation";
+import { Navigation, Footer } from "~/components";
 
 interface Props {
   children: React.ReactNode;
@@ -11,6 +11,7 @@ export function Layout({ children }: Props) {
       <main className="px-4 flex flex-col gap-20 items-center justify-center min-h-screen">
         {children}
       </main>
+      <Footer />
     </div>
   );
 }
