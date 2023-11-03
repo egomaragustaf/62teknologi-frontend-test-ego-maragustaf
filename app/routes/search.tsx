@@ -2,6 +2,7 @@ import type { LoaderFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { Layout } from "~/components";
+import { BusinessCard } from "~/components/shared/card-businesses";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const token = process.env.ACCESS_TOKEN;
@@ -32,19 +33,11 @@ export default function Route() {
       {!query && <p>Insert keyword!</p>}
 
       {query && businesses.businesses && businesses.businesses.length > 0 ? (
-        <ul className="grid grid-cols-5 justify-center items-center">
+        <ul className="grid grid-cols-5 justify-center items-center gap-4">
           {businesses.businesses.map((business: any) => {
             return (
               <Link key={business.id} to={`/business/${business.alias}`}>
-                <li>
-                  <h2>{business.name}</h2>
-                  <p>{business.alias}</p>
-                  <img
-                    src={business.image_url}
-                    alt={business.alias}
-                    width={200}
-                  />
-                </li>
+                <BusinessCard business={business as any} />
               </Link>
             );
           })}
