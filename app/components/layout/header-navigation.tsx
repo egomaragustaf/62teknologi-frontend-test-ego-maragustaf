@@ -24,9 +24,7 @@ export function Navigation() {
               <li key={navPublicItem.to}>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive
-                      ? "text-rose-400 hover:text-white"
-                      : "text-white hover:text-rose-400"
+                    isActive ? "text-primary" : "text-white hover:text-primary"
                   }
                   to={navPublicItem.to}>
                   {navPublicItem.text}

@@ -29,29 +29,27 @@ export default function Route() {
 
   return (
     <Layout>
-      <div>
-        {!query && <p>Insert keyword!</p>}
+      {!query && <p>Insert keyword!</p>}
 
-        {query && businesses.businesses && businesses.businesses.length > 0 ? (
-          <ul className="grid grid-cols-5">
-            {businesses.businesses.map((business: any) => {
-              return (
-                <li key={business.id}>
-                  <h2>{business.name}</h2>
-                  <p>{business.alias}</p>
-                  <img
-                    src={business.image_url}
-                    alt={business.alias}
-                    width={200}
-                  />
-                </li>
-              );
-            })}
-          </ul>
-        ) : (
-          <p>Sorry, businesses not found!</p>
-        )}
-      </div>
+      {query && businesses.businesses && businesses.businesses.length > 0 ? (
+        <ul className="grid grid-cols-5 justify-center items-center">
+          {businesses.businesses.map((business: any) => {
+            return (
+              <li key={business.id}>
+                <h2>{business.name}</h2>
+                <p>{business.alias}</p>
+                <img
+                  src={business.image_url}
+                  alt={business.alias}
+                  width={200}
+                />
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <p>Sorry, businesses not found!</p>
+      )}
     </Layout>
   );
 }
