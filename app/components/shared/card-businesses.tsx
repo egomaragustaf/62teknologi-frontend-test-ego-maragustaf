@@ -17,7 +17,6 @@ interface Props {
     review_count: number;
     rating: number;
     price: string;
-    total: number;
   };
 }
 
@@ -28,7 +27,7 @@ export function BusinessCard({ business }: Props) {
         <img
           src={business.image_url}
           alt={business.alias}
-          className="rounded-t-lg h-48 w-48 object-fit"
+          className="rounded-t-lg h-48 w-48 object-cover"
         />
       </CardHeader>
 
@@ -38,9 +37,8 @@ export function BusinessCard({ business }: Props) {
           {business.alias}
         </CardDescription>
         <CardFooter>
-          <div className="text-yellow-400 flex items-center justify-start gap-1">
-            <span>{business.price}</span>
-            {business.rating}
+          <div className="text-primary flex items-center justify-start gap-1">
+            <span>Rating {business.rating}</span>
           </div>
         </CardFooter>
       </CardContent>
