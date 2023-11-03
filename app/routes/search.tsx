@@ -1,7 +1,6 @@
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { SearchForm } from "~/components/shared/search-form-businesses";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
@@ -29,12 +28,10 @@ export default function Route() {
 
   return (
     <div>
-      <SearchForm />
-
       {!query && <p>Insert keyword!</p>}
 
       {query && businesses.businesses && businesses.businesses.length > 0 ? (
-        <ul>
+        <ul className="grid grid-cols-4">
           {businesses.businesses.map((business: any) => {
             return (
               <li key={business.id}>

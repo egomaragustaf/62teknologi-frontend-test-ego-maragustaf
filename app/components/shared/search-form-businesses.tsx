@@ -25,6 +25,7 @@ export function SearchForm({
           placeholder={placeholder}
           defaultValue={query}
           autoComplete="off"
+          className="max-w-lg"
         />
       </fieldset>
     </form>
