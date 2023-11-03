@@ -31,14 +31,14 @@ export default function Route() {
   return (
     <Layout>
       {!query && (
-        <p className="text-muted-foreground">
+        <p className="text-base text-center text-muted-foreground lg:text-2xl max-w-6xl">
           Insert keyword! Examples: "New York City", "NYC", "350 5th Ave, New
           York, NY 10118".
         </p>
       )}
 
       {query && businesses.businesses && businesses.businesses.length > 0 ? (
-        <ul className="grid grid-cols-5 justify-center items-center gap-4">
+        <ul className="grid grid-cols-2 lg:grid-cols-5 justify-center items-center gap-4">
           {businesses.businesses.map((business: any) => {
             return (
               <Link key={business.id} to={`/businesses/${business.alias}`}>

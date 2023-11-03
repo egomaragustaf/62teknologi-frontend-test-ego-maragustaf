@@ -12,9 +12,9 @@ const navPublicItems = [
 
 export function Navigation() {
   return (
-    <header className="z-10 sticky backdrop-blur top-0 flex py-4 gap-6 px-4 lg:px-20 items-center justify-between bg-zinc-900/95 text-white">
+    <header className="z-10 sticky backdrop-blur top-0 flex py-4 gap-6 px-4 lg:px-20 items-center justify-between bg-zinc-900/95 transition text-white">
       <Link to={`/`}>
-        <h1 className="text-2xl">YELP CLONE</h1>
+        <h1 className="text-2xl hover:text-primary">YELP CLONE</h1>
       </Link>
 
       <nav>

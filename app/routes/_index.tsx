@@ -11,7 +11,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <Layout>
-      <div className="space-y-6 text-center">
+      <div className="space-y-6 text-center -mt-36">
         <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-7xl">
           Wellcome to Yelp Clone
         </h1>

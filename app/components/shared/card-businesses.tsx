@@ -27,7 +27,7 @@ export function BusinessCard({ business }: Props) {
         <img
           src={business.image_url}
           alt={business.alias}
-          className="rounded-t-lg h-48 w-48 object-cover"
+          className="rounded-t-lg h-auto w-auto lg:h-48 lg:w-48 object-cover"
         />
       </CardHeader>
 
