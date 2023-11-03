@@ -1,6 +1,6 @@
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { Layout } from "~/components";
 
 export async function loader({ request }: LoaderFunctionArgs) {
@@ -10,7 +10,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const token = process.env.ACCESS_TOKEN;
 
   const response = await fetch(
-    `https://api.yelp.com/v3/businesses/search?location=${query}&sort_by=best_match&limit=20`,
+    `https://api.yelp.com/v3/businesses/search?location=${query}`,
     {
       method: "GET",
       headers: {
@@ -35,15 +35,17 @@ export default function Route() {
         <ul className="grid grid-cols-5 justify-center items-center">
           {businesses.businesses.map((business: any) => {
             return (
-              <li key={business.id}>
-                <h2>{business.name}</h2>
-                <p>{business.alias}</p>
-                <img
-                  src={business.image_url}
-                  alt={business.alias}
-                  width={200}
-                />
-              </li>
+              <Link key={business.id} to={`/business/${business.alias}`}>
+                <li>
+                  <h2>{business.name}</h2>
+                  <p>{business.alias}</p>
+                  <img
+                    src={business.image_url}
+                    alt={business.alias}
+                    width={200}
+                  />
+                </li>
+              </Link>
             );
           })}
         </ul>
