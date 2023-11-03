@@ -4,13 +4,13 @@ import { Link, useLoaderData } from "@remix-run/react";
 import { Layout } from "~/components";
 
 export async function loader({ request }: LoaderFunctionArgs) {
+  const token = process.env.ACCESS_TOKEN;
+
   const url = new URL(request.url);
   const query = url.searchParams.get("q");
 
-  const token = process.env.ACCESS_TOKEN;
-
   const response = await fetch(
-    `https://api.yelp.com/v3/businesses/search?location=${query}`,
+    `https://api.yelp.com/v3/businesses/search?location=${query}&limit=10`,
     {
       method: "GET",
       headers: {
