@@ -41,7 +41,7 @@ export default function Route() {
         <ul className="grid grid-cols-5 justify-center items-center gap-4">
           {businesses.businesses.map((business: any) => {
             return (
-              <Link key={business.id} to={`/business/${business.alias}`}>
+              <Link key={business.id} to={`/businesses/${business.alias}`}>
                 <BusinessCard business={business as any} />
               </Link>
             );
