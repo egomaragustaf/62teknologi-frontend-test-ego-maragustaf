@@ -1,6 +1,7 @@
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import { Layout } from "~/components";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
@@ -27,28 +28,30 @@ export default function Route() {
   const { query, businesses } = useLoaderData<typeof loader>();
 
   return (
-    <div>
-      {!query && <p>Insert keyword!</p>}
+    <Layout>
+      <div>
+        {!query && <p>Insert keyword!</p>}
 
-      {query && businesses.businesses && businesses.businesses.length > 0 ? (
-        <ul className="grid grid-cols-4">
-          {businesses.businesses.map((business: any) => {
-            return (
-              <li key={business.id}>
-                <h2>{business.name}</h2>
-                <p>{business.alias}</p>
-                <img
-                  src={business.image_url}
-                  alt={business.alias}
-                  width={200}
-                />
-              </li>
-            );
-          })}
-        </ul>
-      ) : (
-        <p>Sorry, businesses not found!</p>
-      )}
-    </div>
+        {query && businesses.businesses && businesses.businesses.length > 0 ? (
+          <ul className="grid grid-cols-5">
+            {businesses.businesses.map((business: any) => {
+              return (
+                <li key={business.id}>
+                  <h2>{business.name}</h2>
+                  <p>{business.alias}</p>
+                  <img
+                    src={business.image_url}
+                    alt={business.alias}
+                    width={200}
+                  />
+                </li>
+              );
+            })}
+          </ul>
+        ) : (
+          <p>Sorry, businesses not found!</p>
+        )}
+      </div>
+    </Layout>
   );
 }

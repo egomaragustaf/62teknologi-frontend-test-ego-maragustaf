@@ -15,7 +15,7 @@ export function SearchForm({
   const query = searchParams.get("q") ?? "";
 
   return (
-    <form method="GET" action={action} className="w-full">
+    <form method="GET" action={action} className="w-96">
       <fieldset className="group relative flex items-center gap-1">
         <label htmlFor="search" hidden />
         <Input
@@ -25,7 +25,7 @@ export function SearchForm({
           placeholder={placeholder}
           defaultValue={query}
           autoComplete="off"
-          className="max-w-lg"
+          className="w-full bg-background text-black dark:text-white"
         />
       </fieldset>
     </form>
